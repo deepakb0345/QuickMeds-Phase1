@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickMeds Prescription Upload</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #edf8e9;
+            color: #005a32;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 90, 50, 0.1);
+            padding: 2rem;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #238b45;
+        }
+        p {
+            color: #41ab5d;
+        }
+        label {
+            display: block;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            background-color: #41ab5d;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .custom-file-upload:hover {
+            background-color: #238b45;
+        }
+        button {
+            background-color: #005a32;
+            color: #fff;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1.5rem;
+        }
+        .status {
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        .success { color: #238b45; }
+        .error { color: #ab4444; }
+        .selected-file {
+            display: block;
+            margin-top: 0.5rem;
+            color: #41ab5d;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Prescription</h1>
+        <p>Take a clear picture of your prescription to begin.</p>
+        <form id="uploadForm">
+            <input type="file" id="imageFile" accept="image/*" required>
+            <label for="imageFile" class="custom-file-upload">Choose Image</label>
+            <span id="selectedFileName" class="selected-file"></span>
+            <div id="statusMessage" class="status"></div>
+            <button type="submit" id="uploadButton">Upload</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('uploadForm');
+        const fileInput = document.getElementById('imageFile');
+        const statusMessage = document.getElementById('statusMessage');
+        const uploadButton = document.getElementById('uploadButton');
+        const selectedFileNameSpan = document.getElementById('selectedFileName');
+
+        // Listen for file selection and update the UI
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                selectedFileNameSpan.textContent = `Selected: ${fileInput.files[0].name}`;
+            } else {
+                selectedFileNameSpan.textContent = '';
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+            if (!id) {
+                statusMessage.textContent = 'Error: Missing session ID.';
+                statusMessage.className = 'status error';
+                return;
+            }
+
+            const file = fileInput.files[0];
+            if (!file) {
+                statusMessage.textContent = 'Please select an image.';
+                statusMessage.className = 'status error';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('image', file);
+            
+            statusMessage.textContent = 'Uploading...';
+            statusMessage.className = 'status';
+            uploadButton.disabled = true;
+
+            try {
+                // Dynamically build the URL using the current host
+                const host = window.location.host;
+                const apiEndpoint = `http://${host}/api/prescriptions/mobile-upload?id=${id}`;
+
+                const response = await fetch(apiEndpoint, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    statusMessage.textContent = 'Upload successful! You can now return to the machine.';
+                    statusMessage.className = 'status success';
+                } else {
+                    const errorData = await response.json();
+                    statusMessage.textContent = `Upload failed: ${errorData.message}`;
+                    statusMessage.className = 'status error';
+                }
+            } catch (error) {
+                console.error('Upload failed:', error);
+                statusMessage.textContent = 'An unexpected error occurred. Check your network.';
+                statusMessage.className = 'status error';
+            } finally {
+                uploadButton.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

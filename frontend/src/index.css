@@ -1,0 +1,88 @@
+/* src/index.css */
+
+/*
+  Global Styles
+  - Applies a modern, clean font stack.
+  - Resets default browser margins and paddings for consistency.
+  - Sets a base font size and line height.
+  - Smooths font rendering.
+*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+  Root Variables (Optional but Recommended)
+  - Define your color palette here for easy reuse and maintenance.
+*/
+:root {
+  --color-primary-darkest: #005a32;
+  --color-primary-dark: #238b45;
+  --color-primary-mid: #41ab5d;
+  --color-primary-light: #74c476;
+  --color-primary-lighter: #a1d99b;
+  --color-primary-lightest: #c7e9c0;
+  --color-background-soft: #edf8e9;
+  --color-white: #ffffff;
+  --color-text: var(--color-primary-darkest);
+}
+
+/*
+  Base Styles for Common Elements
+*/
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+button:hover {
+  background-color: var(--color-primary-mid);
+}
+
+button:disabled {
+  background-color: var(--color-primary-lighter);
+  cursor: not-allowed;
+}
+
+a {
+  color: var(--color-primary-mid);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*
+  Layout and Spacing Helpers
+*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}

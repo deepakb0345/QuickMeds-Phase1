@@ -1,0 +1,224 @@
+/* src/components/MedicineList.css */
+
+.medicine-list-container {
+  min-height: 100vh;
+  background-color: #edf8e9;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-list {
+  background-color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-bottom: 2px solid #238b45;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-placeholder {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #005a32;
+}
+
+.list-main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 4rem 2rem;
+}
+
+/* Steps Section */
+.steps-container-list {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 90, 50, 0.1);
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #a1d99b;
+}
+
+.step-item.completed .step-number {
+  background-color: #238b45;
+  color: #fff;
+}
+
+.step-item.current {
+  color: #005a32;
+}
+
+.step-item.current .step-number {
+  background-color: #41ab5d;
+  color: #fff;
+}
+
+.step-number {
+  background-color: #c7e9c0;
+  color: #005a32;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+/* Items and Checkout Section */
+.items-container {
+  background-color: #ffffff;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 90, 50, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #005a32;
+  margin-bottom: 2rem;
+}
+
+.med-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.med-card {
+  border: 1px solid #c7e9c0;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.med-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  color: #238b45;
+}
+
+.med-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #74c476;
+}
+
+.med-brand {
+  font-weight: 600;
+  color: #005a32;
+}
+
+.med-actions {
+  margin-top: 1rem;
+}
+
+.med-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #41ab5d;
+}
+
+.med-stock {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #a1d99b;
+}
+
+.out-of-stock {
+  opacity: 0.6;
+}
+
+.out-of-stock .med-stock {
+  color: #ab4444;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.quantity-btn {
+  background-color: #74c476;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.quantity-btn:disabled {
+  background-color: #a1d99b;
+}
+
+.quantity-count {
+  margin: 0 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #005a32;
+}
+
+/* Checkout Section */
+.checkout-summary {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.total-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #005a32;
+}
+
+.total-cost {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #238b45;
+}
+
+.checkout-button {
+  background-color: #005a32;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+}
+
+.checkout-button:disabled {
+  background-color: #a1d99b;
+}
+
+.dispensing-status {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  color: #41ab5d;
+  text-align: center;
+}
