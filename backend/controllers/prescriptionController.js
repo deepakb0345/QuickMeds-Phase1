@@ -97,10 +97,6 @@ exports.checkUploadStatus = (req, res) => {
     }
 };
 
-// --------------------- Helper Function to Avoid Code Duplication ---------------------
-// controllers/prescriptionController.js
-
-// ... (your existing code and imports)
 
 const processImageAndMatch = async (prescriptionImage, machineId) => {
   const result = await cloudinary.uploader.upload(prescriptionImage.path, {
@@ -110,8 +106,7 @@ const processImageAndMatch = async (prescriptionImage, machineId) => {
   
   fs.unlinkSync(prescriptionImage.path);
 
-  const promptText = `
-Extract all the medicines from this prescription image.
+  const promptText = `Extract all the medicines and their dosage from this prescription image.
 Return strictly as a JSON array in the following format:
 
 [
@@ -150,6 +145,6 @@ Do NOT include any explanations or extra text. Only valid JSON.
   });
 
   const transactionWithStock = await matchStock(transaction.transactionId);
-
+  console.log("Final Transaction with Stock Info:", transactionWithStock);
   return transactionWithStock;
 };

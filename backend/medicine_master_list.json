@@ -814,59 +814,26 @@
         "prescription_required": false
     },
     {
-        "id": "QMED75",
-        "name": "Omeprazole",
-        "brand": "Omez",
-        "type": "Capsule",
-        "strength": "20mg",
-        "dosage": "20mg",
-        "uses": "Acidity, Ulcers",
-        "price": 45,
-        "prescription_required": false
+    "id": "QMED101",
+    "name": "Bifilac",
+    "brand": "Bifilac",
+    "type": "Capsule",
+    "strength": "Probiotic blend",
+    "dosage": "1 capsule",
+    "uses": "Restores gut flora, Diarrhea, Indigestion",
+    "price": 45,
+    "prescription_required": false
     },
     {
-        "id": "QMED76",
-        "name": "Levocetirizine",
-        "brand": "Lezyncet",
-        "type": "Tablet",
-        "strength": "5mg",
-        "dosage": "5mg",
-        "uses": "Allergies",
-        "price": 30,
-        "prescription_required": false
-    },
-    {
-        "id": "QMED77",
-        "name": "Metoprolol",
-        "brand": "Metolar",
-        "type": "Tablet",
-        "strength": "25mg",
-        "dosage": "25mg",
-        "uses": "Hypertension, Angina",
-        "price": 50,
-        "prescription_required": true
-    },
-    {
-        "id": "QMED78",
-        "name": "Enalapril",
-        "brand": "Envas",
-        "type": "Tablet",
-        "strength": "5mg",
-        "dosage": "5mg",
-        "uses": "Hypertension",
-        "price": 25,
-        "prescription_required": true
-    },
-    {
-        "id": "QMED79",
-        "name": "Glimepiride",
-        "brand": "Amaryl",
-        "type": "Tablet",
-        "strength": "1mg",
-        "dosage": "1mg",
-        "uses": "Type 2 Diabetes",
-        "price": 40,
-        "prescription_required": true
+    "id": "QMED102",
+    "name": "Chymoral Forte",
+    "brand": "Chymoral",
+    "type": "Tablet",
+    "strength": "100,000 AU (Trypsin-Chymotrypsin)",
+    "dosage": "1 tablet",
+    "uses": "Anti-inflammatory, swelling reduction, post-injury recovery",
+    "price": 120,
+    "prescription_required": true
     },
     {
         "id": "QMED80",
@@ -1098,5 +1065,29 @@
         "uses": "Nausea, Vomiting",
         "price": 25,
         "prescription_required": false
+    },
+
+    {
+    "id": "QMED101",
+    "name": "Bifilac",
+    "brand": "Bifilac",
+    "type": "Capsule",
+    "strength": "Probiotic blend",
+    "dosage": "1 capsule",
+    "uses": "Restores gut flora, Diarrhea, Indigestion",
+    "price": 45,
+    "prescription_required": false
+    },
+    {
+    "id": "QMED102",
+    "name": "Chymoral Forte",
+    "brand": "Chymoral",
+    "type": "Tablet",
+    "strength": "100,000 AU (Trypsin-Chymotrypsin)",
+    "dosage": "1 tablet",
+    "uses": "Anti-inflammatory, swelling reduction, post-injury recovery",
+    "price": 120,
+    "prescription_required": true
     }
+
 ]
